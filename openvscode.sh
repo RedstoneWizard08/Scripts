@@ -10,7 +10,7 @@ echo "Detecting architecture..."
 ARCH=`dpkg --print-architecture
 case $ARCH in
   "amd64") ARCH="x64" ;;
-  *) echo "Unsupported architecture. Exiting..." && exit 1 ;;
+  *) echo "Unsupported architecture. Exiting..."; exit 1 ;;
 esac`
 
 URL="$BASEURL-$ARCH.tar.gz"
