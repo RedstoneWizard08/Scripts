@@ -76,8 +76,13 @@ function continueInstall {
 }
 
 function otherDir {
-    read -p "What directory should we use? (Enter an absolute path, no variables): " dir
-    read -p "Confirming install to: $dir (y/n): " yn
+    if [[ -n "$ZSH_VERSION" ]]; then
+        read "dir?What directory should we use? (Enter an absolute path, no variables): "
+        read "yn?Confirming install to: $dir (y/n): "
+    else
+        read -p "What directory should we use? (Enter an absolute path, no variables): " dir
+        read -p "Confirming install to: $dir (y/n): " yn
+    fi
     case $yn in
         [Yy]* ) echo "Continuing..."; VSCFOLDER="$dir"; continueInstall ;;
         [Nn]* ) echo "Exiting..."; exit 1 ;;
@@ -86,7 +91,11 @@ function otherDir {
 }
 
 function newInstall {
-    read -p "OpenVSCode Server will be installed to $VSCFOLDER. Is that okay? (y/n): " yn
+    if [[ -n "$ZSH_VERSION" ]]; then
+        read "yn?OpenVSCode Server will be installed to $VSCFOLDER. Is that okay? (y/n): "
+    else
+        read -p "OpenVSCode Server will be installed to $VSCFOLDER. Is that okay? (y/n): " yn
+    fi
     case $yn in
         [Yy]* ) echo "Continuing..."; continueInstall ;;
         [Nn]* ) otherDir ;;
