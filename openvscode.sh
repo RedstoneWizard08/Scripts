@@ -104,7 +104,11 @@ function newInstall {
 }
 
 if [[ -d "$VSCFOLDER" ]]; then
-    read -p "A previous install was found at $VSCFOLDER. Reinstall it? (y/n): " yn
+    if [[ -n "$ZSH_VERSION" ]]; then
+        read "yn?A previous install was found at $VSCFOLDER. Reinstall it? (y/n): "
+    else
+        read -p "A previous install was found at $VSCFOLDER. Reinstall it? (y/n): " yn
+    fi
     case $yn in
         [Yy]* ) echo "Removing old install at $VSCFOLDER..."; rm -r "$VSCFOLDER"; removeOldBin ;;
         [Nn]* ) echo "Exiting..."; exit 1 ;;
