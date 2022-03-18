@@ -76,7 +76,7 @@ function continueInstall {
 }
 
 function otherDir {
-    if [[ -n "$ZSH_VERSION" ]]; then
+    if [[ ! -n "$ZSH_VERSION" ]]; then
         read "dir?What directory should we use? (Enter an absolute path, no variables): "
         read "yn?Confirming install to: $dir (y/n): "
     else
@@ -91,7 +91,7 @@ function otherDir {
 }
 
 function newInstall {
-    if [[ -n "$ZSH_VERSION" ]]; then
+    if [[ ! -n "$ZSH_VERSION" ]]; then
         read "yn?OpenVSCode Server will be installed to $VSCFOLDER. Is that okay? (y/n): "
     else
         read -p "OpenVSCode Server will be installed to $VSCFOLDER. Is that okay? (y/n): " yn
@@ -104,7 +104,7 @@ function newInstall {
 }
 
 if [[ -d "$VSCFOLDER" ]]; then
-    if [[ -n "$ZSH_VERSION" ]]; then
+    if [[ ! -n "$ZSH_VERSION" ]]; then
         read "yn?A previous install was found at $VSCFOLDER. Reinstall it? (y/n): "
     else
         read -p "A previous install was found at $VSCFOLDER. Reinstall it? (y/n): " yn
