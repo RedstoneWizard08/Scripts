@@ -5,3 +5,7 @@ Random scripts I made.
 ```sh
 curl -fsSL https://raw.githubusercontent.com/RedstoneWizard08/Scripts/main/openvscode.sh | bash
 ```
+- Rustup System Install
+```sh
+curl -fsSL https://raw.githubusercontent.com/RedstoneWizard08/Scripts/main/rustup-system-install.sh | sudo bash
+```
