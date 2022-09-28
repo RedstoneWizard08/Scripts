@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# ========================================
+#
+#           Easy FirewallD tool
+#       Created by RedstoneWizard08.
+#
+# ========================================
+
+ACTION="HELP"
+PORT=""
+
+if [[ "$1" == "add" ]]; then
+  ACTION="ADD"
+  PORT="$2"
+elif [[ "$1" == "remove" ]] || [[ "$1" == "rm" ]]; then
+  ACTION="REMOVE"
+  PORT="$2"
+fi
+
+if [[ "$ACTION" == "ADD" ]]; then
+  echo "Adding $PORT to zone public's TCP allowlist..."
+  sudo firewall-cmd --zone=public --add-port="$PORT/tcp"
+  
+  echo "Adding $PORT to zone public's UDP allowlist..."
+  sudo firewall-cmd --zone=public --add-port="$PORT/udp"
+  
+  echo "Reloading the firewall config..."
+  sudo firewall-cmd --reload
+  
+  echo "Successfully allowed the port $PORT!"
+elif [[ "$ACTION" == "REMOVE" ]]; then
+  echo "Removing $PORT from zone public's TCP allowlist..."
+  sudo firewall-cmd --zone=public --remove-port="$PORT/tcp"
+  
+  echo "Removing $PORT from zone public's UDP allowlist..."
+  sudo firewall-cmd --zone=public --remove-port="$PORT/udp"
+  
+  echo "Reloading the firewall config..."
+  sudo firewall-cmd --reload
+  
+  echo "Successfully disallowed the port $PORT!"
+elif [[ "$ACTION" == "HELP" ]]; then
+  echo "Usage: $0 <command> [arguments]"
+  echo ""
+  echo "Commands:"
+  echo "> add [port]: Adds a port to the public zone's allowlist."
+  echo "> remove [port]: Removes a port from the public zone's allowlist."
+fi
