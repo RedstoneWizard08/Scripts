@@ -5,7 +5,12 @@ Random scripts I made.
 ```sh
 curl -fsSLO https://raw.githubusercontent.com/RedstoneWizard08/Scripts/main/openvscode.sh && bash openvscode.sh
 ```
-- Rustup System Install
+- Rustup System Install:
 ```sh
 curl -fsSL https://raw.githubusercontent.com/RedstoneWizard08/Scripts/main/rustup-system-install.sh | sudo bash
+```
+- Firewall Script:
+```sh
+sudo curl -fsSLo "/usr/local/bin/firewall" "https://raw.githubusercontent.com/RedstoneWizard08/Scripts/main/firewall" && sudo chmod a+rx "/usr/local/bin/firewall"
+sudo curl -fsSLo "/usr/local/bin/fw" "https://raw.githubusercontent.com/RedstoneWizard08/Scripts/main/firewall" && sudo chmod a+rx "/usr/local/bin/fw"
 ```
