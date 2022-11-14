@@ -2,10 +2,10 @@
 
 set -e
 
-echo "OpenVSCode installer v1.0.0 by RedstoneWizard08"
+echo "OpenVSCode installer v1.1.0 by RedstoneWizard08"
 echo ""
 
-VERSION="1.71.2"
+VERSION="1.73.1"
 BASEURL="https://github.com/gitpod-io/openvscode-server/releases/download/openvscode-server-v$VERSION/openvscode-server-v$VERSION-linux"
 
 echo "Detecting system architecture..."
