@@ -9,7 +9,7 @@ else
     echo "export PATH=\"$HOME/.local/bin:\$PATH\"" >> ~/.zshrc
 fi
 
-wget https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_macOS_amd64.tar.gz -qO gh.tgz
+curl -fsSL https://github.com/cli/cli/releases/download/v2.27.0/gh_2.27.0_macOS_amd64.tar.gz -o gh.tgz
 tar -zxf gh.tgz
 rm gh.tgz
 
