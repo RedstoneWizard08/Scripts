@@ -5,8 +5,8 @@ set -e
 echo "OpenVSCode installer v1.1.0 by RedstoneWizard08"
 echo ""
 
-VERSION="1.78.1"
-BASEURL="https://github.com/gitpod-io/openvscode-server/releases/download/openvscode-server-v$VERSION/openvscode-server-v$VERSION-linux"
+VERSION="1.80.0"
+BASEURL="https://github.com/gitpod-io/openvscode-server/releases/download/openvscode-server-insiders-v$VERSION/openvscode-server-insiders-v$VERSION-linux"
 
 echo "Detecting system architecture..."
 
@@ -47,7 +47,7 @@ function continueInstall {
 
     echo "Cleaning up..."
 
-    mv $VSCTEMP/openvscode-server-v$VERSION-linux-$ARCH/* "$VSCFOLDER"
+    mv $VSCTEMP/openvscode-server-insiders-v$VERSION-linux-$ARCH/* "$VSCFOLDER"
     rm -r "$VSCTEMP"
 
     echo "Adding to bin..."
